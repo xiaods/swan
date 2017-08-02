@@ -19,7 +19,8 @@ services:
       - MESOS_QUORUM=1
       - MESOS_PORT=5050
       - MESOS_LOGGING_LEVEL=WARNING
-      - MESOS_CLUSTER=DemoMesos 
+      - MESOS_CLUSTER=DemoMesos
+      - MESOS_HOSTNAME=localhost
     depends_on:
       - zookeeper
     links:
@@ -42,6 +43,7 @@ services:
       - MESOS_SYSTEMD_ENABLE_SUPPORT=false
       - MESOS_WORK_DIR=/data/mesos
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - MESOS_HOSTNAME=localhost
     volumes:
       - /var/lib/docker:/data/docker:rw
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
